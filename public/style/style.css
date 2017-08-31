@@ -1,0 +1,244 @@
+@font-face {
+    font-family: CenturyGothicRegular;
+    src: url(fonts/CenturyGothicRegular/CenturyGothicRegular.ttf);
+    font-family: BadScriptRegular;
+    src: url(fonts/BadScriptRegular/BadScriptRegular.ttf);
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/page2.jpg);
+    background-size: contain;
+    background-repeat-y: repeat;
+    font-family: CenturyGothicRegular;
+    color: darkcyan;
+}
+.posts {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+.post {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 20px 40px;
+    margin: 20px;
+    background-color: aliceblue;
+}
+.art {
+    min-height: 200px;
+}
+.definite {
+    font-size: 25px;
+    letter-spacing: 0.5px;
+}
+.definite .post {
+    width: 100%;
+    margin-bottom: 50px;
+}
+.image {
+    width: 100px;
+    height: 100px;
+    border: 2px double #39321F;
+    float: left;
+    margin: 10px 15px 0 10px;
+}
+.date {
+    float: right;
+    margin: 25px 0 30px;
+}
+.post a {
+    color: #4B0082;
+    text-decoration: none;
+}
+.field {
+    width: 70%;
+    margin: 10px auto;
+    padding: 4px 10px;
+    background-color: #faffb0;
+    background-size: auto;
+    font-family: BadScriptRegular;
+    color: #4B0082;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    border: 3px double #7A7258;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.33);
+}
+.topfield {
+    padding: 0 10px;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 10px;
+    margin: auto;
+    padding: 40px 25px 25px;
+}
+.page, .addPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.addPage {
+    width: 100%;
+}
+.addForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+form textarea {
+    background-position: 0 -27px;
+}
+input {
+    border-image: none;
+    border: 2px double #A8955C;
+}
+.button {
+    min-width: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: CenturyGothicRegular;
+    color: darkcyan;
+    text-align: center;
+    padding: 5px 15px;
+    border: 3px double #7A7258;
+    border-radius: 30px;
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.5));
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.33);
+}
+.button:hover, .button:focus {
+    border: 3px double #A8955C;
+    background: linear-gradient(rgba(250,255,176,0.6), rgba(250,255,176,0.4));
+    outline: none;
+}
+.button:active {
+    background: linear-gradient(rgba(250,255,176,0.6), rgba(250,255,176,0.4));
+    text-shadow: 0px 0px 1px  rgba(255,255,255,0.2);
+    outline: none;
+}
+.pagesNum {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 300px;
+    margin: auto;
+}
+.pagesNum a {
+    display: inline-block;
+    text-decoration: none;
+    color: darkcyan;
+    margin: 10px;
+}
+.pagesNum .now {
+    font-weight: 700;
+}
+.over {
+    flex-direction: row-reverse;
+    padding: 25px 25px 0;
+}
+.in_out, .search {
+    float: right;
+    max-width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.in_out .field {
+    width: 31.2%;
+}
+.message {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+.alert {
+    float: left;
+    font-size: 20px;
+    margin-left: 5px;
+    color: #4B0082;
+    padding: 5px;
+    border: 3px double #7A7258;
+    background-color: #faffb0;
+}
+.registration {
+    width: 400px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+input:focus{
+    outline: none;
+}
+label, span {
+    font-weight: 600;
+}
+label {
+    font-size: 18px;
+}
+span:not(.date) {
+    color: #4B0082;
+}
+.date {
+    font-size: 20px;
+    font-weight: 100;
+}
+p {
+    padding: 5px;
+}
+.buttons {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding: 10px 40px;
+}
+.comments_btn {
+    width: 100px;
+    height: 100px;
+    background-image: url("images/comment.jpg");
+    background-size: cover;
+}
+aside {
+    position: fixed;
+    right: 15%;
+}
+aside ul {
+    list-style: none;
+    font-size: 25px;
+    width: 150px;
+}
+aside li {
+    text-align: center;
+    margin: 10px 0;
+}
+aside ul a {
+    display: inline-block;
+    color: #4B0082;
+    text-decoration: none;
+}
+.changes {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
