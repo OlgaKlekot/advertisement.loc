@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "illuminate/database": "^5.4"
+    "illuminate/database": "^5.4",
+    "fzaninotto/faker": "^1.7"
   },
   "autoload": {
     "psr-4": {

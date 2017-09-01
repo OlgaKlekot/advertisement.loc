@@ -9,7 +9,7 @@ use app\src\models\Post;
 
 function index()
 {
-    $categories = Category::select('categories.*')->groupBy('categories.id')->get()->toArray();
+    $categories = Category::select('*')->groupBy('id')->orderBy('category')->get()->toArray();
 
     if (isset($_GET['category'])) {
         $posts = Post::select('posts.*', 'categories.category', 'users.username')->leftJoin('users', 'users.id', '=', 'posts.user_id')->leftJoin('categories', 'categories.id', '=', 'posts.category_id')->where('categories.category', '=', $_GET['category'])->groupBy('posts.id')->orderBy('posts.created_at', 'DESC')->get()->toArray();
@@ -30,7 +30,7 @@ function definitePost($postN)
 
 
 function userCabinetIndex() {
-    $categories = Category::select('categories.*')->groupBy('categories.id')->get()->toArray();
+    $categories = Category::select('*')->groupBy('id')->orderBy('category')->get()->toArray();
     global $app;
 
     if (isset($_GET['category'])) {

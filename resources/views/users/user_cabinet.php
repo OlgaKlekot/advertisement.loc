@@ -14,8 +14,8 @@
             price: <span><?= sprintf ("$%01.2f", $post['price']) ?></span>
         <?php endif; ?>
         <div class="image"></div>
-        <?php if (strlen($post['main']) > 250) {
-            $post['main'] = substr($post['main'],0,250) . "...";
+        <?php if (strlen($post['main']) > 150) {
+            $post['main'] = substr($post['main'],0,150) . "...";
         } ?>
         <p class="post_text"><?= $post['main'] ?></p>
         <div class="changes">
