@@ -34,12 +34,8 @@ function logout() {
 }
 
 function loadUserByUsername($username) {
-    global $app;
-    $result = User::select('*')->where('users.username', '=', $_POST['username'])->get()->toArray();
-    $app['user'] = $result;
-    return current(array_filter($app['user'], function($user) use($username) {
-        return $user['username'] == $username;
-    }));
+    $user = User::select('*')->where('users.username', '=', $username)->get()->toArray();
+    return current($user);
 }
 
 function index() {
@@ -47,16 +43,16 @@ function index() {
 }
 
 function addUser() {
-    $user = User::select('*')->where('users.username', '=', $_POST['userName'])->get()->toArray();
+    $user = User::select('username')->where('username', '=', $_POST['userName'])->get()->toArray();
 
-    if ($_POST['passWord'] === $_POST['confirmPassWord'] && $_POST['userName'] !== $user[0]['username']) {
+    if ($_POST['passWord'] !== $_POST['confirmPassWord'] || $_POST['userName'] === $user[0]['username']) {
+        addFlash('warning', 'Please enter another login, or check whether the password and its confirmation are equal!');
+        redirect('registration');
+    } else {
         User::insert(['username' => $_POST['userName'], 'password' => password_hash($_POST['passWord'], PASSWORD_DEFAULT)]);
 
         addFlash('success', 'You are successfully registered, please log in!');
         redirect('main_page');
-    } else {
-        addFlash('warning', 'Please enter another login, or check whether the password and its confirmation are equal!');
-        redirect('registration');
     }
 }
 

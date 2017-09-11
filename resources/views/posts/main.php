@@ -7,8 +7,8 @@
         <span class="date"><?= $post['created_at'] ?></span>
         <a href="<?= \app\core\createUrl('definite_post', ['postN' => $post['title']]) ?>"><h3 class="title"><?= $post['title'] ?></h3></a>
         <p>
-            category: <span><?= $post['category'] ?></span>
-            authored by <span class="author"><?= $post['username'] ?></span>
+            category: <span><?= $post['type']['category'] ?></span>
+            authored by <span class="author"><?= $post['author']['username'] ?></span>
         </p>
         <?php if (isset($post['price']) && $post['price'] != 0): ?>
             price: <span><?= sprintf ("$%01.2f", $post['price']) ?></span>
@@ -22,15 +22,6 @@
     <?php endforeach; ?>
 </div>
 <aside>
-    <div class="sidebar">
-        <ul>
-            <?php foreach ($categories as $category): ?>
-                <a href="<?= \app\core\createUrl('main_page') ?>?category=<?= $category['category'] ?>">
-                    <li class="button">
-                        <?= $category['category'] ?>
-                    </li>
-                </a>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+    <?= app\core\renderFile('../src/controllers/categoriesList.php',
+        'app\\src\\controllers\\categoriesList\\categoriesList') ?>
 </aside>
