@@ -8,7 +8,7 @@ use app\src\models\User;
 
 
 function login() {
-    if (!isset($_POST['username']) || !isset($_POST['password'])) {
+    if (!$_POST['username'] || !$_POST['password']) {
         core\addFlash('danger', 'Not enough parameters');
         core\redirect('main_page');
     }
@@ -16,16 +16,15 @@ function login() {
         core\addFlash('danger', 'Username or password are incorrect');
         core\redirect('main_page');
     }
-    if (password_verify($_POST['password'], $user['password'])) {
+    if (!password_verify((string)$_POST['password'], $user['password'])) {
         core\addFlash('danger', 'Username or password are incorrect');
         core\redirect('main_page');
     }
 
     core\persistUser($user);
-
     core\addFlash('success', sprintf('Hi, %s!', $user['username']));
-
     core\redirect('main_page');
+
 }
 
 function logout() {
@@ -50,7 +49,6 @@ function addUser() {
         redirect('registration');
     } else {
         User::insert(['username' => $_POST['userName'], 'password' => password_hash($_POST['passWord'], PASSWORD_DEFAULT)]);
-
         addFlash('success', 'You are successfully registered, please log in!');
         redirect('main_page');
     }
